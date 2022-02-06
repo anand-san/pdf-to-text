@@ -1,6 +1,7 @@
 import React from 'react';
 import './Pdf2Text.css'
 import Logo from './assets/logo.png'
+import { UploadSection } from "./Components/UploadSection";
 
 export const Pdf2Text = () => {
   return (
@@ -14,6 +15,8 @@ export const Pdf2Text = () => {
                   <p>Convert a PDF to a text file</p>
               </div>
           </div>
+
+          <UploadSection />
       </div>
   );
 }

@@ -1,0 +1,6 @@
+.uploadSection {
+    border-radius: 12px;
+    background-color: rgba(160,188,222,.03);
+    border: 1px dashed rgba(160,181,206,.34);
+    min-height: 350px;
+}
