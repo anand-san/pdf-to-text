@@ -21,3 +21,14 @@
 .uploadSection__content_actions {
     margin-left: 15px;
 }
+
+.uploadSection__convertButton {
+    width: 250px;
+}
+
+.uploadSection__convertContainer {
+    width: 250px;
+    display: flex;
+    align-self: flex-end;
+    margin-right: 20px;
+}
