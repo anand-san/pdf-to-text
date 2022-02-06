@@ -3,7 +3,10 @@ import { useDropzone } from 'react-dropzone';
 import PDFToText from './assets/pdftotext.png'
 
 export const UploadSection = () => {
-    const {acceptedFiles, getRootProps, getInputProps} = useDropzone();
+    const {acceptedFiles, fileRejections, getRootProps, getInputProps} = useDropzone({
+        accept: 'application/pdf',
+        maxFiles: 1
+    });
 
     const files = acceptedFiles.map((file: File | any) => (
         <li key={file.path}>
