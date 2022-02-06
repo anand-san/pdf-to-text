@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { Pdf2Text } from './Layouts/Pdf2Text/';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Pdf2Text />
   </React.StrictMode>,
   document.getElementById('root')
 );

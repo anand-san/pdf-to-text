@@ -1,0 +1,24 @@
+.pdfToText {
+  margin: 20px;
+}
+
+.topHeading {
+  display: flex;
+  justify-content: flex-start;
+  font-family: Roboto, sans-serif;
+}
+
+.topHeading__image {
+  display: flex;
+  align-self: center;
+}
+
+@media screen and (max-width: 468px) {
+  .topHeading {
+    flex-direction: column;
+  }
+
+  .topHeading__image {
+    align-self: flex-start;
+  }
+}
