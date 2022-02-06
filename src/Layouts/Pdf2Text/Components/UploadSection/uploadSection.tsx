@@ -1,5 +1,5 @@
 import './uploadFile.css'
-import { useDropzone } from 'react-dropzone';
+import { useDropzone, FileWithPath } from 'react-dropzone';
 import PDFToText from './assets/pdftotext.png'
 
 export const UploadSection = () => {
@@ -8,7 +8,7 @@ export const UploadSection = () => {
         maxFiles: 1
     });
 
-    const files = acceptedFiles.map((file: File | any) => (
+    const files = acceptedFiles.map((file: FileWithPath) => (
         <li key={file.path}>
             {file.path} - {file.size} bytes
         </li>
