@@ -1,11 +1,15 @@
+import React from 'react'
 import './uploadFile.css'
 import { useDropzone, FileWithPath } from 'react-dropzone';
 import PDFToText from './assets/pdftotext.png'
 import Button from '@mui/material/Button';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import LoopIcon from '@mui/icons-material/Loop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export const UploadSection = () => {
+    const [convertInProgress, setConvertInProgress] = React.useState(false)
+
     const {acceptedFiles, fileRejections, getRootProps, getInputProps} = useDropzone({
         accept: 'application/pdf',
         maxFiles: 1
@@ -16,6 +20,14 @@ export const UploadSection = () => {
             {file.path} - {file.size} bytes
         </li>
     ));
+
+    const handleConvert = () => {
+        setConvertInProgress(true)
+
+        setTimeout(() => {
+            setConvertInProgress(false)
+        }, 4000)
+    }
 
     return (
         <div className='uploadSection'>
@@ -47,7 +59,14 @@ export const UploadSection = () => {
             </div>
 
             <div className='uploadSection__convertContainer'>
-                <Button className='uploadSection__convertButton' variant={'contained'} color='success' disabled={!files.length} startIcon={<LoopIcon />}>
+                <Button
+                    className='uploadSection__convertButton'
+                    variant={'contained'}
+                    color='success'
+                    disabled={!files.length || convertInProgress}
+                    startIcon={convertInProgress ? <CircularProgress size={18} color={'inherit'}/>  : <LoopIcon />}
+                    onClick={handleConvert}
+                >
                     Convert
                 </Button>
             </div>
