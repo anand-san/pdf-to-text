@@ -3,4 +3,21 @@
     background-color: rgba(160,188,222,.03);
     border: 1px dashed rgba(160,181,206,.34);
     min-height: 350px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.uploadSection__wrapper {
+    cursor: pointer;
+}
+
+.uploadSection__contents {
+    display: flex;
+    justify-content: space-around;
+}
+
+.uploadSection__content_actions {
+    margin-left: 15px;
 }
