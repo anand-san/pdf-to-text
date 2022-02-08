@@ -11,8 +11,12 @@ export const Pdf2Text = () => {
     return (
       <div className='pdfToText'>
           <HeadingSection />
-          <UploadSection setParsedFileData={setParsedFileData} />
-          <ParsedTextArea pdfData={parsedFileData}/>
+          {
+              parsedFileData ?
+                  <ParsedTextArea pdfData={parsedFileData} setPdfData={setParsedFileData}/> :
+                  <UploadSection setPdfData={setParsedFileData} />
+          }
+
       </div>
   );
 }
