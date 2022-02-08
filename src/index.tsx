@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { Pdf2Text } from './Layouts/Pdf2Text/';
 import reportWebVitals from './reportWebVitals';
+import { ErrorBoundary } from "./Components/ErrorBoundary";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Pdf2Text />
+      <ErrorBoundary>
+          <Pdf2Text />
+      </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')
 );
