@@ -26,10 +26,8 @@ export const UploadSection = ({ setPdfData }: UploadSectionProps) => {
     const handleConvert = async () => {
         setConvertInProgress(convertInProgress => !convertInProgress)
         const parsedFile = await uploadFile(acceptedFiles[0])
+        setConvertInProgress(convertInProgress => !convertInProgress)
         setPdfData(parsedFile)
-        setTimeout(() => {
-            setConvertInProgress(convertInProgress => !convertInProgress)
-        }, 1000)
     }
 
     return (
