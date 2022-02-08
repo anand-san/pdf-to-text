@@ -6,9 +6,11 @@ import Button from '@mui/material/Button';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import LoopIcon from '@mui/icons-material/Loop';
 import CircularProgress from '@mui/material/CircularProgress';
+import { uploadFile } from '../../'
+import { UploadSectionProps } from "./";
 
-export const UploadSection = () => {
-    const [convertInProgress, setConvertInProgress] = React.useState(false)
+export const UploadSection = ({ setParsedFileData }: UploadSectionProps) => {
+    const [convertInProgress, setConvertInProgress] = React.useState<boolean>(false)
 
     const {acceptedFiles, fileRejections, getRootProps, getInputProps} = useDropzone({
         accept: 'application/pdf',
@@ -21,12 +23,13 @@ export const UploadSection = () => {
         </li>
     ));
 
-    const handleConvert = () => {
-        setConvertInProgress(true)
-
+    const handleConvert = async () => {
+        setConvertInProgress(convertInProgress => !convertInProgress)
+        const parsedFile = await uploadFile(acceptedFiles[0])
+        setParsedFileData(parsedFile)
         setTimeout(() => {
-            setConvertInProgress(false)
-        }, 4000)
+            setConvertInProgress(convertInProgress => !convertInProgress)
+        }, 1000)
     }
 
     return (
