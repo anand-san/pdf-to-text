@@ -7,11 +7,7 @@ export const uploadFile = async (file: File): Promise<ParsedPDFData> => {
     let formData = new FormData();
     formData.append("file", file);
 
-    const response = await axios.post(BASE_URL + 'upload', formData, {
-        headers: {
-            "Content-Type": "multipart/form-data",
-        },
-    })
+    const response = await axios.post(BASE_URL + 'upload', formData )
 
     return response.data.pdfData
 };
