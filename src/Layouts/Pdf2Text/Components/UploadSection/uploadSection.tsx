@@ -9,7 +9,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { uploadFile } from '../../'
 import { UploadSectionProps } from "./";
 
-export const UploadSection = ({ setParsedFileData }: UploadSectionProps) => {
+export const UploadSection = ({ setPdfData }: UploadSectionProps) => {
     const [convertInProgress, setConvertInProgress] = React.useState<boolean>(false)
 
     const {acceptedFiles, fileRejections, getRootProps, getInputProps} = useDropzone({
@@ -26,7 +26,7 @@ export const UploadSection = ({ setParsedFileData }: UploadSectionProps) => {
     const handleConvert = async () => {
         setConvertInProgress(convertInProgress => !convertInProgress)
         const parsedFile = await uploadFile(acceptedFiles[0])
-        setParsedFileData(parsedFile)
+        setPdfData(parsedFile)
         setTimeout(() => {
             setConvertInProgress(convertInProgress => !convertInProgress)
         }, 1000)
