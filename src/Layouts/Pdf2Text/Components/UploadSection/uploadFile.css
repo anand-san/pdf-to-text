@@ -1,4 +1,9 @@
 .uploadSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.uploadSection__container {
     border-radius: 12px;
     background-color: rgba(160,188,222,.03);
     border: 1px dashed rgba(160,181,206,.34);
@@ -9,7 +14,7 @@
     flex-direction: column;
 }
 
-.uploadSection__wrapper {
+.uploadSection__fileUploadWrapper {
     cursor: pointer;
 }
 
@@ -23,12 +28,11 @@
 }
 
 .uploadSection__convertButton {
+    margin-top: 20px!important;
     width: 250px;
 }
 
 .uploadSection__convertContainer {
-    width: 250px;
     display: flex;
     align-self: flex-end;
-    margin-right: 20px;
 }

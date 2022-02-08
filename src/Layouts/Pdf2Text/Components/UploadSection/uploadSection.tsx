@@ -34,7 +34,8 @@ export const UploadSection = ({ setPdfData }: UploadSectionProps) => {
 
     return (
         <div className='uploadSection'>
-            <div className='uploadSection__wrapper'>
+        <div className='uploadSection__container'>
+            <div className='uploadSection__fileUploadWrapper'>
                 <div {...getRootProps({className: 'dropzone'})}>
                     <div className='uploadSection__contents'>
                         <input {...getInputProps()} />
@@ -60,19 +61,20 @@ export const UploadSection = ({ setPdfData }: UploadSectionProps) => {
                 }
 
             </div>
-
-            <div className='uploadSection__convertContainer'>
-                <Button
-                    className='uploadSection__convertButton'
-                    variant={'contained'}
-                    color='success'
-                    disabled={!files.length || convertInProgress}
-                    startIcon={convertInProgress ? <CircularProgress size={18} color={'inherit'}/>  : <LoopIcon />}
-                    onClick={handleConvert}
-                >
-                    Convert
-                </Button>
-            </div>
         </div>
+
+    <div className='uploadSection__convertContainer'>
+        <Button
+            className='uploadSection__convertButton'
+            variant={'contained'}
+            color='primary'
+            disabled={!files.length || convertInProgress}
+            startIcon={convertInProgress ? <CircularProgress size={18} color={'inherit'}/>  : <LoopIcon />}
+            onClick={handleConvert}
+        >
+            Convert
+        </Button>
+    </div>
+    </div>
     )
 }
