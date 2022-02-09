@@ -21,7 +21,7 @@ export const ParsedTextArea = ({ pdfData, setPdfData }: ParsedTextAreaProps) => 
     }
 
     return <div className='parsedTextArea__container'>
-        <textarea value={pdfData?.text} disabled className='parsedTextArea__textArea' placeholder='Parsed Text'/>
+        <textarea value={pdfData?.text} disabled className='parsedTextArea__textArea' placeholder='Parsed text will appear here'/>
 
         <div className='parsedTextArea__actionButtonsContainer'>
             <Button
@@ -30,6 +30,7 @@ export const ParsedTextArea = ({ pdfData, setPdfData }: ParsedTextAreaProps) => 
                 color='primary'
                 onClick={() => setPdfData(undefined)}
                 startIcon={<ArrowBackIcon />}
+                fullWidth
             >
                 Convert Another
             </Button>
@@ -40,6 +41,7 @@ export const ParsedTextArea = ({ pdfData, setPdfData }: ParsedTextAreaProps) => 
                 color='success'
                 onClick={downloadTxtFile}
                 startIcon={<FileDownloadIcon />}
+                fullWidth
             >
                 Download Text File
             </Button>
