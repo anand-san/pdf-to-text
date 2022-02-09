@@ -29,10 +29,21 @@
 
 .uploadSection__convertButton {
     margin-top: 20px!important;
-    width: 250px;
+    width: 250px!important;
 }
 
 .uploadSection__convertContainer {
     display: flex;
     align-self: flex-end;
+}
+
+
+@media screen and (max-width: 575px) {
+    .uploadSection__convertButton {
+        width: 100%!important;
+    }
+
+    .uploadSection__convertContainer {
+        align-self: normal;
+    }
 }
