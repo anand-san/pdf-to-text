@@ -78,6 +78,7 @@ export const UploadSection = ({ setPdfData }: UploadSectionProps) => {
             disabled={!files.length || convertInProgress}
             startIcon={convertInProgress ? <CircularProgress size={18} color={'inherit'}/>  : <LoopIcon />}
             onClick={handleConvert}
+            fullWidth
         >
             Convert
         </Button>
