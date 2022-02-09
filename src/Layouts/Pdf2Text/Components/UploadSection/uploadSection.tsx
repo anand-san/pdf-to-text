@@ -11,7 +11,7 @@ import { UploadSectionProps } from "./";
 
 export const UploadSection = ({ setPdfData }: UploadSectionProps) => {
     const [convertInProgress, setConvertInProgress] = React.useState<boolean>(false)
-
+    const [isError, setIsError] = React.useState<Error | undefined>()
     const {acceptedFiles, fileRejections, getRootProps, getInputProps} = useDropzone({
         accept: 'application/pdf',
         maxFiles: 1
@@ -24,10 +24,16 @@ export const UploadSection = ({ setPdfData }: UploadSectionProps) => {
     ));
 
     const handleConvert = async () => {
-        setConvertInProgress(convertInProgress => !convertInProgress)
-        const parsedFile = await uploadFile(acceptedFiles[0])
-        setConvertInProgress(convertInProgress => !convertInProgress)
-        setPdfData(parsedFile)
+        try{
+            setConvertInProgress(true)
+            const parsedFile = await uploadFile(acceptedFiles[0])
+            setConvertInProgress(false)
+            setPdfData(parsedFile)
+        }catch(error: any) {
+            setIsError(error)
+            setConvertInProgress(false)
+
+        }
     }
 
     return (
@@ -48,14 +54,17 @@ export const UploadSection = ({ setPdfData }: UploadSectionProps) => {
                 </div>
                 {
                     !!files.length &&
-                    <aside>
-                        <h4>Selected File</h4>
+                    <>
+                        <h4>Selected File 📄</h4>
                         <ul>{files}</ul>
-                    </aside>
+                    </>
                 }
 
                 {
-                    !!fileRejections.length && <p>Couldn't upload last file</p>
+                    (!!fileRejections.length || isError) && <>
+                        <h4>Error 😞</h4>
+                        <ul>Failed to upload the selected file</ul>
+                    </>
                 }
 
             </div>
