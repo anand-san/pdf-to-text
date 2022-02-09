@@ -9,7 +9,7 @@
     align-self: flex-end;
     margin-top: 20px!important;
     margin-left: 20px!important;
-    width: 250px;
+    width: 250px!important;
 }
 
 .parsedTextArea__textArea {
@@ -34,6 +34,6 @@
 
     .parsedTextArea__button {
         margin-left: 0;
-        width: 100%;
+        width: 100%!important;
     }
 }
